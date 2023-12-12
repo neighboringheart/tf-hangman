@@ -4,7 +4,7 @@ This is a hangman web app with answers themed around Transformers! The base code
 
 ### Future Updates
 
-- further keyboard compatabiity (so far only letter keypresses have their intended function)(not being able to figure out how to get the enter key to do what I want is haunting me but I'll get there I promise)
+- further keyboard compatability (so far only letter keypresses have their intended function)(not being able to figure out how to get the enter key to do what I want is haunting me but I'll get there I promise)
 
 ### Current Answers
 
