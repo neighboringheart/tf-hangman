@@ -1,0 +1,412 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+:root {
+    --white: 246, 238, 255;
+    --black: 32, 9, 52;
+    --red: 194, 52, 52;
+    --pink: 222, 89, 142;
+    --lavender: 179, 139, 209;
+    --purple: 127, 62, 205;
+}
+
+body {
+    background: linear-gradient(rgb(var(--pink)), rgb(var(--white)) 20%, rgb(var(--white)) 80%, rgb(var(--lavender)));
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    font-family: 'M PLUS 1 Code', 'Courier New', Courier, monospace;
+}
+
+#home {
+    background: linear-gradient(rgb(var(--red)), rgb(var(--purple)), rgb(var(--black)));
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 99;
+}
+
+#home .title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 15%;
+    text-align: center;
+    font-family: 'Orbitron', 'Courier New', Courier, monospace;
+    color: rgb(var(--white));
+    text-shadow: 3px 3px 0 rgb(var(--black));
+}
+
+#home .button {
+    background: linear-gradient(rgb(var(--pink)), rgb(var(--purple)) 40%, rgb(var(--purple)) 60%, rgb(var(--lavender)));
+    border-radius: 2px;
+    box-shadow: 0 0 0 3px rgb(var(--white));
+    display: table;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 20% auto;
+    cursor: pointer;
+    color: rgb(var(--white));
+}
+
+#home .footer {
+    bottom: 20px;
+    font-size: 12px;
+    font-style: italic;
+    position: absolute;
+    right: 20px;
+    color: rgb(var(--white));
+}
+
+.h {
+    display: none;
+}
+
+#result {
+    background: linear-gradient(rgba(var(--red), 0.9) 20%, rgba(var(--black), 0.7) 80%);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+}
+
+#result[data="true"] {
+    background: linear-gradient(rgba(var(--purple), 0.9) 20%, rgba(0, 0, 0, 0.7) 80%);
+}
+
+#result .title {
+    color: rgb(var(--white));
+    font-size: 48px;
+    margin-top: 15%;
+    text-align: center;
+    text-shadow: 3px 3px 0 rgb(var(--black));
+    font-family: 'Orbitron', 'Courier New', Courier, monospace;
+}
+
+#result .body {
+    color: rgb(var(--white));
+    margin-top: 30px;
+    text-align: center;
+    text-shadow: 1px 1px 0 #000;
+}
+
+#result .button {
+    background: linear-gradient(rgb(var(--pink)), rgb(var(--purple)) 40%, rgb(var(--purple)) 60%, rgb(var(--lavender)));
+    border-radius: 2px;
+    box-shadow: 0 0 0 3px rgb(var(--white));
+    display: table;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 40px auto;
+    margin-bottom: 0;
+    cursor: pointer;
+    color: rgb(var(--white));
+}
+
+#letter {
+    font-size: 22px;
+    height: 30px;
+    margin: 20px auto;
+    text-align: center;
+    background: rgb(var(--white));
+    border-radius: 3px;
+    width: max-content;
+    padding: 2px 5px;
+    box-shadow: 1px 1px 4px rgb(var(--black));
+}
+
+.l {
+    box-shadow: 0 3px 0 -1px rgb(var(--black));
+    padding-bottom: 3px;
+    display: inline-block;
+    margin: 1px;
+    height: 20px;
+    text-transform: uppercase;
+    width: 20px;
+}
+
+.ls {
+    box-shadow: 0 0 0 0 rgb(var(--black));
+    width: 10px;
+}
+
+#game {
+    height: 250px;
+    margin: auto;
+    position: relative;
+    width: 220px;
+}
+
+#game .player {
+    left: 53px;
+    position: absolute;
+    top: 90px;
+    height: 130px;
+    width: 75px;
+}
+
+.player .playerModel {
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.playerModel .head {
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #000 inset;
+    height: 35px;
+    margin: auto;
+    width: 35px;
+}
+
+.playerModel .head[data="false"] {
+    display: none;
+}
+
+.playerModel .body {
+    background-color: #000;
+    height: 45px;
+    margin: auto;
+    width: 2px;
+}
+
+.playerModel .body[data="false"] {
+    display: none;
+}
+
+.playerModel .body:before, .playerModel .body:after {
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 30px;
+    position: absolute;
+    width: 2px;
+}
+
+.playerModel .body[l="false"]:before, .playerModel .body[r="false"]:after {
+    display: none;
+}
+
+.playerModel .body:before {
+    left: 27px;
+    transform: rotate(45deg);
+}
+
+.playerModel .body:after {
+    right: 26px;
+    transform: rotate(-45deg);
+}
+
+.playerModel .foot {
+    background-color: #000;
+    height: 3px;
+    margin: auto;
+    width: 2px;
+}
+
+.playerModel .foot[data="false"] {
+    display: none;
+}
+
+.playerModel .foot:before, .playerModel .foot:after {
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 40px;
+    position: absolute;
+    width: 2px;
+}
+
+.playerModel .foot[l="false"]:before, .playerModel .foot[r="false"]:after {
+    display: none;
+}
+
+.playerModel .foot:before {
+    left: 30px;
+    transform: rotate(20deg);
+}
+
+.playerModel .foot:after {
+    right: 29px;
+    transform: rotate(-20deg);
+}
+
+#game .stang3 {
+    background-color: #000;
+    height: 20px;
+    left: 90px;
+    position: absolute;
+    top: 70px;
+    width: 2px;
+}
+
+#game .stang3[data="false"] {
+    display: none;
+}
+
+#game .stang2 {
+    background-color: #000;
+    border-radius: 5px 0 0 5px;
+    bottom: 180px;
+    height: 5px;
+    position: absolute;
+    right: 45px;
+    width: 95px;
+}
+
+#game .stang2:before {
+    background-color: #000;
+    content: "";
+    left: 50px;
+    height: 5px;
+    position: absolute;
+    top: 17px;
+    transform: rotate(45deg);
+    width: 50px;
+}
+
+#game .stang2[data="false"] {
+    display: none;
+}
+
+#game .stang {
+    background-color: #000;
+    bottom: 0;
+    height: 180px;
+    margin: auto;
+    position: absolute;
+    right: 45px;
+    width: 5px;
+}
+
+#game .stang[data="false"] {
+    display: none;
+}
+
+#game .ground {
+    background-color: #000;
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    width: 220px;
+}
+
+#game .ground[data="false"] {
+    display: none;
+}
+
+#game .hintButton {
+    background: rgb(var(--white));
+    background: linear-gradient(rgb(var(--white)), rgba(var(--lavender), 0.6));
+    border-radius: 8%;
+    box-shadow: 1px 1px 3px rgb(var(--black));
+    font-weight: bold;
+    padding: 5px 10px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+
+#game .hintButton[data="false"] {
+    display: none;
+}
+
+#tastatur {
+    background-color: rgba(var(--white), 0.5);
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    margin-bottom: 20px;
+    max-width: 500px;
+    padding: 0 15px 15px 15px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 1px 1px 4px rgb(var(--black));
+}
+
+#moveKeybord {
+    padding: 15px;
+}
+
+.marg {
+    border-bottom: solid 2px rgba(var(--black), 0.4);
+}
+
+#hint {
+    border-radius: 2px;
+    box-shadow: 1px 1px 4px rgb(var(--black));
+    display: none;
+    left: 0;
+    margin: auto;
+    margin-top: 75px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 250px;
+    border: 1px solid rgb(var(--white));
+}
+
+#hint .title {
+    background: linear-gradient(rgb(var(--lavender)), rgb(var(--pink)));
+    border-radius: 2px 2px 0 0;
+    font-weight: bold;
+    padding: 5px 10px;
+    position: relative;
+    font-family: 'Orbitron', 'Courier New', Courier, monospace;
+    color: rgb(var(--white));
+}
+
+#hint .title .exit {
+    background-color: rgb(var(--red));
+    border-radius: 50%;
+    box-shadow: 1px 1px 4px rgb(var(--black));
+    font-weight: bold;
+    padding: 8px 12px;
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    cursor: pointer;
+    color: rgb(var(--white));
+}
+
+#hint .body {
+    background-color: rgb(var(--white));
+    border-radius: 0 0 2px 2px;
+    padding: 10px;
+}
+
+.b {
+    background: linear-gradient(rgb(var(--white)), rgba(var(--white), 0.8));
+    box-shadow: 1px 1px 2px 0 rgba(var(--black), 0.7);
+    display: inline-block;
+    margin: 2px;
+    padding: 8px;
+    text-align: center;
+    width: 25px;
+    cursor: pointer;
+}
+
+.b[data="false"], .b[data="true"] {
+    font-weight: bold;
+    cursor: default;
+}
+
+.b[data="true"] {
+    background: rgba(var(--pink));
+    color: rgb(var(--white));
+}
+
+.b[data="false"] {
+    background: rgba(var(--lavender), 0.5);
+    color: rgba(var(--black), 0.5);
+}
