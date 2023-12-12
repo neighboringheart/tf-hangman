@@ -108,7 +108,8 @@ body {
 
 #letter {
     font-size: 22px;
-    height: 30px;
+    height: auto;
+    max-width: 400px;
     margin: 20px auto;
     text-align: center;
     background: rgb(var(--white));
@@ -116,12 +117,14 @@ body {
     width: max-content;
     padding: 2px 5px;
     box-shadow: 1px 1px 4px rgb(var(--black));
+    display: flex;
+    flex-flow: row wrap;
 }
 
 .l {
     box-shadow: 0 3px 0 -1px rgb(var(--black));
     padding-bottom: 3px;
-    display: inline-block;
+    display: block;
     margin: 1px;
     height: 20px;
     text-transform: uppercase;
