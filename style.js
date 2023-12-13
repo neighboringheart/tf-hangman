@@ -9,11 +9,11 @@ var word = [
     ["Transformers", "The name of the franchise."],
     // autobots
     ["Ambulon", "Former Decepticon medic who joined the Autobots and suffered from flaky paint. Worked on Delphi with First Aid and Pharma."],
-    ["Anode", "Treasure Hunter and Blacksmith who brought her wife back to life."],
+    ["Anode", "Archeologist and Blacksmith who brought her wife back to life."],
     ["Arcee", "The first female transformer."],
     ["Blaster", "Autobot cassette carrier."],
     ["Blurr", "Fastest Cybertronian."],
-    ["Brainstorm", "The most brilliant mind in existence who created a time machine. Member of the Lost Light."],
+    ["Brainstorm", "The most brilliant mind in existence who created a time machine."],
     ["Bulkhead", "Big, green sweetheart with wrecking ball hands."],
     ["Bumblebee", "The Autobots' yellow scout."],
     ["Chromedome", "Mnemosurgeon who nearly sacrificed his life to reunite his beloved with his long lost lover."],
@@ -224,11 +224,16 @@ function createTastur() {
     }
 }
 
-// keyboard event
+// keyboard events
 document.addEventListener('keydown', (e) => {
-    let letter = parseInt(e.keyCode)
-    if (letter >= 65 && letter <= 90) {
-        bTas(getButton(letter))
+    let key = parseInt(e.keyCode)
+    console.log(key)
+    if (key >= 65 && key <= 90) {
+        bTas(getButton(key))
+    } else if (key == 13) {
+        if (gId('home').className == '' || gId('result').className == '') {
+            startGame()
+        }
     }
 })
 
