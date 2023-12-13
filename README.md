@@ -1,10 +1,10 @@
 ## Transformers Hangman
 
-This is a hangman web app with answers themed around Transformers! The base code I adapted can be found [here](https://www.sololearn.com/en/compiler-playground/WyyBylG1NvdU/#js) and it was coded by [Thomas Hj](https://www.sololearn.com/en/Profile/2280953). If you have any requests for answers to add, or if there is anything that isn't functioning correctly, or any incorrect information in the hints, feel free to reach out to me on Twitter or Tumblr! I am happy to edit this further as I find it very fun to play myself and want it to be a fun experience for all of you as well. All current answers are listed below (below the updates that is lol).
+This is a hangman web app with answers themed around Transformers! The base code I adapted can be found [here](https://www.sololearn.com/en/compiler-playground/WyyBylG1NvdU/#js) and it was coded by [Thomas Hj](https://www.sololearn.com/en/Profile/2280953). The game is fully playable using only the keyboard, so feel free to give that a try! Use the enter key on the home screen, win screen, or lose screen to start/restart the game, and if you'd like to restart it without finishing a round, just refresh and it'll take you back to the home screen. If you have any requests for answers to add, or if there is anything that isn't functioning correctly, or any incorrect information in the hints, feel free to reach out to me on Twitter or Tumblr! I am happy to edit this further as I find it very fun to play myself and want it to be a fun experience for all of you as well. All current answers are listed below (below the updates that is lol).
 
 ### Future Updates
 
-- further keyboard compatability (so far only letter keypresses have their intended function)(not being able to figure out how to get the enter key to do what I want is haunting me but I'll get there I promise)
+- more answers
 
 ### Current Answers
 
