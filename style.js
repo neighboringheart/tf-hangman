@@ -11,7 +11,9 @@ var word = [
     ["Ambulon", "Former Decepticon medic who joined the Autobots and suffered from flaky paint. Worked on Delphi with First Aid and Pharma."],
     ["Anode", "Archeologist and Blacksmith who brought her wife back to life."],
     ["Arcee", "The first female transformer."],
+    ["Atomizer", "Helped plot a mutiny with Getaway, but in the end was betrayed by him."], // new
     ["Blaster", "Autobot cassette carrier."],
+    ["Bluestreak", "Almost wasn't allowed to join the Lost Light due to a resemblance to Prowl, but that was just Swerve kidding around. An expert on Earth culture and now an additional bartender at Swerve's."], // new
     ["Blurr", "Fastest Cybertronian."],
     ["Brainstorm", "The most brilliant mind in existence who created a time machine."],
     ["Bulkhead", "Big, green sweetheart with wrecking ball hands."],
@@ -36,19 +38,25 @@ var word = [
     ["Minimus Ambus", "Current bearer of the Magnus armor."],
     ["Mirage", "He's your boy and he's got some illusory tricks."],
     ["Nautica", "Camien quantum physicist who joined the Lost Light."],
+    ["Nightbeat", "A detective who can't resist solving a good mystery."], // new
     ["Optimus Prime", "The leader of the Autobots."],
     ["Perceptor", "Brilliant scientist who also has a skill for sharpshooting."],
     ["Pharma", "A former colleague of Ratchet's who wound up making a deal with the DJD that caused him to spiral further and further to hide his crimes."],
     ["Prowl", "Autobot cop."],
     ["Ratchet", "The Autobots' grumpy doctor."],
+    ["Red Alert", "Paranoid to a fault, but cares deeply about his friends. The former head of security on the Lost Light. In some continuities, a medic."], // new
     ["Rewind", "Archivist who spent years trying to find his lover who went missing."],
+    ["Riptide", "He's got brawn and a big heart, but there's nothing going on in that head of his."],
     ["Rodimus", "Rambunctious captain of the Lost Light."],
+    ["Roller", "A strong and chatty guy who was an old friend of Optimus. Used to take circuit speeders because he was insecure about his abilities, but now he's clean and a member of the Lost Light."], // new
     ["Rung", "Psychotherapist who turned out to actually be god."],
     ["Sideswipe", "Red speedster who has abandonment issues in Robots in Disguise (2015)."],
     ["Skids", "Theoretician with a past that would be best left forgotten."],
+    ["Smokescreen", "Looks a lot like Prowl, but don't worry, he isn't! More than just his looks are deceiving, but that's just his job."], // new
     ["Springer", "Triple changer who once led the wreckers."],
     ["Strongarm", "Young autobot cadet who was assigned to work with Bumblebee before they got stuck on Earth."],
     ["Sunstreaker", "Speedster who has some trauma after he was used by humans for Headmaster experiments."],
+    ["Steeljaw", "In some continuities, he is a loyal companion of Blaster. In others, he's just a furry."], // new
     ["Swerve", "Resident metallurgist and bartender on the Lost Light. Blurr's biggest fan."],
     ["Tailgate", "Waste disposal guy who got stuck underground for millions of years."],
     ["Thunderclash", "Often called the greatest Autobot of all time, but Rodimus would greatly disagree."],
@@ -79,6 +87,7 @@ var word = [
     ["Knockout", "Sometimes a Decepticon medic, sometimes a cosmetic surgeon, but always has the most lustrous finish."],
     ["Krok", "The captain of the Scavengers."],
     ["Lockdown", "Decepticon bounty hunter."],
+    ["Makeshift", "Shapeshifter who tried to dsguise himself as Wheeljack, but was found out and killed."], // new
     ["Megatron", "The leader of the Decepticons."],
     ["Misfire", "The scavenger with the best (worst) aim."],
     ["Motormaster", "Leader of the Stunticons."],
@@ -86,7 +95,7 @@ var word = [
     ["Nova Storm", "Yellow rainmaker. One of Starscream's seekers in EarthSpark."],
     ["Onslaught", "Leader of the Combaticons."],
     ["Overlord", "Phase sixer known for his luscious lips."],
-    ["Ravage", "Cassette who turns into a jaguar."],
+    ["Ravage", "A loyal spy who works under Soundwave and has a feline appearance. Snuck aboard the Lost Light to keep an eye on Megatron at Soundwave's behest."],
     ["Rumble", "Sometimes red, sometimes blue, but always shakes things up."],
     ["Scorponok", "Decepticon who got himself pregnant."],
     ["Shockwave", "Decepticon scientist who is guided by pure logic."],
@@ -105,6 +114,7 @@ var word = [
     ["Bob", "Sunstreaker's pet insecticon."],
     ["Cyclonus", "Former ally of Galvatron, now a member of the Lost Light."],
     ["Galvatron", "Originally a reformatted Megatron, now a separate entity from the dead universe."],
+    ["Metalhawk", "The representative of neutrals on Cybertron after D-Void's attack. Was a friend of Starscream's until he killed him."], // new
     ["Primus", "The first Cybertonian."],
     ["Unicron", "The greatest enemy of Primus."],
     // quotes
@@ -127,6 +137,7 @@ var tastatur = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var select = 0
 var wordLeft = []
 var fail = 0
+var paused = false;
 
 // Web-page onload
 window.onload = function () {
@@ -149,6 +160,7 @@ window.onload = function () {
 function startGame() {
     gId("home").className = "h"
     gId("result").className = "h"
+    paused = false;
     newGame()
 }
 
@@ -245,15 +257,17 @@ function getButton(e) {
 
 // Game check, If show next error / game end
 function bTas(a) {
-    if (a.getAttribute("data") == "") {
-        var x = isExist(a.innerText)
-        a.setAttribute("data", x)
-        if (x) {
-            if (wordLeft.length == 0) {
-                gameEnd(true)
+    if (paused == false) {
+        if (a.getAttribute("data") == "") {
+            var x = isExist(a.innerText)
+            a.setAttribute("data", x)
+            if (x) {
+                if (wordLeft.length == 0) {
+                    gameEnd(true)
+                }
+            } else {
+                showNextFail()
             }
-        } else {
-            showNextFail()
         }
     }
 }
@@ -333,12 +347,13 @@ function gameEnd(e) {
     d.setAttribute("data", e)
     if (e) {
         gId("rT").innerText = "You Win!"
-        gId("rM").innerHTML = "Congratulations, you solved it!<br/><br/>Good Job!"
+        gId("rM").innerHTML = "Congratulations, you solved it!<br/><br/>The Autobots are victorious!"
     } else {
         gId("rT").innerText = "You Lose!"
-        gId("rM").innerHTML = "The answer was <br/><br/>\"" + word[select][0].toUpperCase() + "\"<br/><br/>Better luck next time."
+        gId("rM").innerHTML = "The answer was <br/><br/>\"" + word[select][0].toUpperCase() + "\"<br/><br/>The Decepticons have bested us."
     }
     d.className = ""
+    paused = true;
 }
 
 // Show hint
